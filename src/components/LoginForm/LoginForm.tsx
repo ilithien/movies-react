@@ -8,7 +8,7 @@ interface LoginFormState {
   logged: boolean
 }
 
-export default class LoginForm extends Component<any, LoginFormState> {
+export default class LoginForm extends Component<{}, LoginFormState> {
   state = {
     username: '',
     password: '',

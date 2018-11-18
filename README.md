@@ -15,3 +15,14 @@ Yarn was used during development phase.
 ## (Optional) 3. Run tests
 
 `yarn test`
+
+
+### Tech Stack
+
+* `create-react-app` as starter boiler plate (runs with webpack)
+* TypeScript
+* Sass
+* React-router v4
+* Redux
+* Axios
+* Jest for render / snapshot testing

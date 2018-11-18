@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, RouteComponentProps } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import Header from './components/Header/Header';
-import MovieSearchBox from './components/MovieSearchBox';
-import { movieReducer } from './store/reducers';
+import { movieReducer, detailReducer } from './store/reducers';
 import MovieGrid from './containers/MovieGrid';
+import MovieDetail, { MovieDetailParams } from './containers/MovieDetail/MovieDetail';
 import './App.sass';
 
 const reducers = combineReducers({
-  movies: movieReducer
+  movies: movieReducer,
+  detail: detailReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))
@@ -23,6 +24,7 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path="/" component={MovieGrid} />
+            <Route path="/:id" component={({ match: { params: { id } } }: RouteComponentProps<MovieDetailParams>) => <MovieDetail id={id} />} />
           </div>
         </BrowserRouter>
       </Provider>

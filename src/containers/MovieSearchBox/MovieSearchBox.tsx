@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { MovieSearchBoxProps } from './MovieSearchBox.model';
-import './MovieSearchBox.sass';
 import { connect } from 'react-redux';
 import { findMovies } from '../../store/actions';
+import './MovieSearchBox.sass';
 
-class MovieSearchBox extends Component<MovieSearchBoxProps, any> {
+class MovieSearchBox extends Component<MovieSearchBoxProps> {
 
   findMovies = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
     this.props.findMovies(value);
@@ -19,7 +19,7 @@ class MovieSearchBox extends Component<MovieSearchBoxProps, any> {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   findMovies: (search: String) => dispatch(findMovies(search))
 })
 

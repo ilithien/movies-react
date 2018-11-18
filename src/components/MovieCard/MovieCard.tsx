@@ -1,13 +1,13 @@
 import React from 'react'
 import Movie from '../../model/movie';
-import './MovieCard.sass';
 import { Link } from 'react-router-dom';
+import './MovieCard.sass';
 
-const MovieCard = ({ Title, imdbID, Year, Poster, Genre }: Movie) => {
+const MovieCard = ({ Title, imdbID, Year, Poster }: Movie) => {
   return (
     <div className="MovieCard">
       <div className="poster">
-        <Link to="/hey"><img src={Poster} alt={Title} /></Link>
+        <Link to={`/${imdbID}`}><img src={Poster} alt={Title} /></Link>
       </div>
       <div className="detail">
         <span className="movie-title">{Title}</span>

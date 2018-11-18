@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import { ApplicationState, MoviesState } from '../../store/model';
 import Loader from '../../components/Loader';
 import MovieCard from '../../components/MovieCard';
-import MovieSearchBox from '../../components/MovieSearchBox';
+import MovieSearchBox from '../../containers/MovieSearchBox';
 import './MovieGrid.sass';
 
 interface MovieGridProps {
